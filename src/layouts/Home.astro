@@ -1,5 +1,65 @@
 ---
 import Main from "../layouts/Main.astro";
+import HomeSection from "../layouts/HomeSection.astro";
+import Hero from "../components/Hero.astro";
+import TeamMember from "../components/TeamMember.astro";
+import { getCollection } from "astro:content";
+
+const opinion_coll = await getCollection("opinion").then((coll) =>
+  coll.slice(0, 6),
+);
+const team_coll = await getCollection("team");
 ---
 
-<Main />
+<Main>
+  <div class="lg:w-3/5 lg:min-w-[800px] w-full px-12 lg:p-4 space-y-[4em]">
+    <!-- Hero section -->
+    <Hero />
+    <!-- Opinion section -->
+    <HomeSection title="Opinion">
+      <ul class="grid sm:grid-cols-1 md:grid-cols-3 space-y-4">
+        {
+          opinion_coll.map((entry) => {
+            const _date_obj = new Date(entry.data.date);
+            const date = {
+              month: _date_obj.getMonth() + 1,
+              day: _date_obj.getDate(),
+              year: _date_obj.getFullYear(),
+            };
+            const url = `/opinion/${entry.id}`; // todo: find a way to use this
+            // and to have one for author too.
+            return (
+              <div
+                class="h-[12em] border border-black p-4 m-4 flex flex-col justify-between 
+                          hover:-translate-y-2 transition-transform duration-200 ease-in-out"
+              >
+                <a href={url} class="text-lg font-bold">
+                  {entry.data.title}
+                </a>
+                <p class="text-xs italic">
+                  by {entry.data.author} · {date.day}.{date.month}.{date.year}
+                </p>
+              </div>
+            );
+          })
+        }
+      </ul>
+    </HomeSection>
+    <!-- ENDOF Opinion section -->
+    <!-- Team section -->
+    <HomeSection title="Team">
+      <div class="grid grid-cols-2 p-4">
+        {
+          team_coll.map((entry) => (
+            <TeamMember
+              name={entry.data.name}
+              desc={entry.data.desc}
+              avatar={entry.data.avatar}
+              urls={entry.data.urls}
+            />
+          ))
+        }
+      </div>
+    </HomeSection>
+  </div>
+</Main>
