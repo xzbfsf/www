@@ -1,0 +1,19 @@
+---
+import Main from "../layouts/Main.astro";
+import TitleBlock from "../components/TitleBlock.astro";
+const { frontmatter } = Astro.props;
+---
+
+<!-- TODO: style code blocks -->
+<Main>
+  <div class="w-full flex justify-center">
+    <div class="w-full md:w-3/5 max-w-3xl flex flex-col p-4 space-y-4">
+      <TitleBlock
+        title={frontmatter.title}
+        dateStr={frontmatter.date}
+        author={frontmatter.author}
+      />
+      <slot />
+    </div>
+  </div>
+</Main>

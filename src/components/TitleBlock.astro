@@ -1,0 +1,18 @@
+---
+const { title, dateStr, author } = Astro.props;
+const _date_obj = new Date(dateStr);
+const date = {
+  month: _date_obj.getMonth() + 1,
+  day: _date_obj.getDate(),
+  year: _date_obj.getFullYear(),
+};
+---
+
+<div class="w-full py-2 space-y-4">
+  <h1 class="text-5xl font-semibold leading-tight">
+    {title}
+  </h1>
+  <p class="text-md italic">
+    by {author} · {date.day}.{date.month}.{date.year}
+  </p>
+</div>
