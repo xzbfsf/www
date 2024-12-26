@@ -7,8 +7,4 @@
   "exclude": [
     "dist"
   ],
-  "compilerOptions": {
-    "strictNullChecks": true,
-    "allowJs": true,
-  }
 }

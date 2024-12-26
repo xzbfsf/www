@@ -1,5 +1,4 @@
 ---
-layout: "../layouts/Article.astro"
 title: "Towards a unified theory of theories."
 description: "It sucks that we're so far apart."
 author: "quartztz"
@@ -10,4 +9,3 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam feugiat egestas
 Test Test Test
 
 another test :3
-
