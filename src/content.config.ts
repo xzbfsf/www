@@ -11,11 +11,12 @@ const opinion = defineCollection({
   })
 });
 
-const authors = defineCollection({
-  loader: file('./src/content/authors.json'),
+const team = defineCollection({
+  loader: glob({ pattern: '**/*.json', base: './src/content/team' }),
   schema: z.object({
     name: z.string(), // heavily suggested to be a pseudonym
     desc: z.string(),
+    avatar: z.string().url().optional(),
     urls: z.object({
       social: z.string().url().optional(),
       website: z.string().url().optional(),
@@ -23,4 +24,4 @@ const authors = defineCollection({
   })
 })
 
-export const collections = { opinion, authors };
+export const collections = { opinion, team };
