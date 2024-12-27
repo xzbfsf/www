@@ -6,6 +6,12 @@ on:
       - opened
       - reopened
       - synchronize
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'astro.config.mjs'
 
 env:
   FORCE_COLOR: true
