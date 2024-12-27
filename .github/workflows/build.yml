@@ -1,0 +1,39 @@
+name: astro build check
+
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+    paths:
+      - 'src/**'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tsconfig.json'
+      - 'astro.config.mjs'
+
+env:
+  FORCE_COLOR: true
+
+jobs:
+  check:
+    name: astro check
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v4
+
+      - name: setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: install dependencies
+        run: npm install
+
+      - name: build
+        run: npm run build
+
+      # here is where you would put tests, if we had any.
