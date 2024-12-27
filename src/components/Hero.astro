@@ -1,0 +1,19 @@
+---
+const hero_texts = [
+  "an opinionated, multilanguage, online thought repository",
+  "an outlet for political, artistic and intellectual expression",
+  "a magazine in analysis of culture, online and offline",
+];
+
+const random_desc = hero_texts[Math.floor(Math.random() * hero_texts.length)];
+---
+
+<div class="w-[80%] mx-auto pt-[4em] space-y-8">
+  <h1 class="text-5xl leading-tight">
+    <!-- TODO: typewriter effect -->
+    <span class="font-bold">xzbfsf</span> is {random_desc}.
+  </h1>
+  <p>
+    <span class="font-bold">Interested?</span> contact a member of the team for approval.
+  </p>
+</div>

@@ -1,0 +1,44 @@
+{
+  "$ref": "#/definitions/team",
+  "definitions": {
+    "team": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "desc": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string",
+          "format": "uri"
+        },
+        "urls": {
+          "type": "object",
+          "properties": {
+            "social": {
+              "type": "string",
+              "format": "uri"
+            },
+            "website": {
+              "type": "string",
+              "format": "uri"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "desc",
+        "urls"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
