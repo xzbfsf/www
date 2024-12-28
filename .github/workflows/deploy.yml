@@ -2,7 +2,7 @@ name: deploy to github pages
 
 on:
   push:
-    branches: [ chore/deploy-gh-pages ] # todo: change to main
+    branches: [ main ] # change to your branch for testing
   workflow_dispatch:
 
 # allow to clone repo and create page deployment
