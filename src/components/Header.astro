@@ -1,5 +1,9 @@
+---
+const baseUrl = import.meta.env.BASE_URL
+---
+
 <header class="p-4 flex justify-between">
   <span class="text-xs">XZBFSF · FOR CYBERKIDS BY CYBERKIDS</span>
   <!-- TODO: make disappear on home page -->
-  <a class="text-xs" href="/">BACK HOME >>></a>
+  <a class="text-xs" href={`${baseUrl}/`}>BACK HOME >>></a>
 </header>

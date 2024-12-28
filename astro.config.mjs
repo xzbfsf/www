@@ -7,6 +7,7 @@ import tailwind from '@astrojs/tailwind';
 export default defineConfig({
   site: 'https://xzbfsf.github.io',
   base: '/www/',  // repo name
+  trailingSlash: `always`, // ensure urls are resolved correctly
   markdown: {
     shikiConfig: {
       theme: 'nord'
