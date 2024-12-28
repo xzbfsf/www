@@ -6,8 +6,8 @@ import tailwind from '@astrojs/tailwind';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://xzbfsf.github.io',
-  base: '/www/',  // repo name
-  trailingSlash: `always`, // ensure urls are resolved correctly
+  base: '/www',  // repo name
+  trailingSlash: `never`,
   markdown: {
     shikiConfig: {
       theme: 'nord'
