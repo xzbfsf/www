@@ -5,6 +5,8 @@ import tailwind from '@astrojs/tailwind';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://xzbfsf.github.io',
+  base: '/www/',  // repo name
   markdown: {
     shikiConfig: {
       theme: 'nord'
