@@ -10,6 +10,7 @@ const opinion_coll = await getCollection("opinion").then((coll) =>
   coll.slice(0, 6),
 );
 const team_coll = await getCollection("team");
+const baseUrl = import.meta.env.BASE_URL;
 ---
 
 <Main>
