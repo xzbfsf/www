@@ -1,6 +1,7 @@
 ---
 import Main from "../layouts/Main.astro";
 import HomeSection from "../layouts/HomeSection.astro";
+import ArticleSquare from "../components/ArticleSquare.astro";
 import Hero from "../components/Hero.astro";
 import TeamMember from "../components/TeamMember.astro";
 import { getCollection } from "astro:content";
@@ -21,26 +22,9 @@ const team_coll = await getCollection("team");
       <ul class="grid sm:grid-cols-1 md:grid-cols-3 space-y-4">
         {
           opinion_coll.map((entry) => {
-            const _date_obj = new Date(entry.data.date);
-            const date = {
-              month: _date_obj.getMonth() + 1,
-              day: _date_obj.getDate(),
-              year: _date_obj.getFullYear(),
-            };
-            const url = `/opinion/${entry.id}`; // todo: find a way to use this
-            // and to have one for author too.
             return (
-              <div
-                class="h-[12em] border border-black p-4 m-4 flex flex-col justify-between 
-                          hover:-translate-y-2 transition-transform duration-200 ease-in-out"
-              >
-                <a href={url} class="text-lg font-bold">
-                  {entry.data.title}
-                </a>
-                <p class="text-xs italic">
-                  by {entry.data.author} · {date.day}.{date.month}.{date.year}
-                </p>
-              </div>
+              <ArticleSquare
+                entry={entry} />
             );
           })
         }
