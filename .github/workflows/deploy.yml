@@ -1,0 +1,32 @@
+name: deploy to github pages
+
+on:
+  push:
+    branches: [ chore/deploy-gh-pages ] # todo: change to main
+  workflow_dispatch:
+
+# allow to clone repo and create page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: install, build and upload site
+        uses: withastro/action@v3
+        
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
