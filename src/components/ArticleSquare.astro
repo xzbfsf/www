@@ -6,7 +6,8 @@ const date = {
 	day: _date_obj.getDate(),
 	year: _date_obj.getFullYear(),
 };
-const url = `/opinion/${entry.id}`; // todo: find a way to use this
+const baseUrl = import.meta.env.BASE_URL;
+const url = `${baseUrl}/opinion/${entry.id}`; // todo: find a way to use this
 // and to have one for author too.
 ---
 
