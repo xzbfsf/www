@@ -1,4 +1,15 @@
 ---
+/**
+ * title block component
+ * 
+ * props:
+ * - title: the title of the article
+ * - dateStr: the publication date of the article as a string
+ * - author: the author of the article
+ * 
+ * this component displays the title, author, and publication date of an 
+ * article.
+ */
 const { title, dateStr, author } = Astro.props;
 const _date_obj = new Date(dateStr);
 const date = {
