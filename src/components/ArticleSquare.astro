@@ -1,4 +1,15 @@
 ---
+/**
+ * article square component
+ * 
+ * props:
+ * - entry: the article entry object containing data such as title, author, and 
+ *   date
+ * 
+ * this component displays a square card for an article with a title, author, 
+ * and date.
+ * it also includes a link to the full article.
+ */
 const { entry } = Astro.props;
 const _date_obj = new Date(entry.data.date);
 const date = {

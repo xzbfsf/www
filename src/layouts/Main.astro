@@ -1,6 +1,13 @@
 ---
-import Header from "../components/Header.astro";
+/**
+ * main layout
+ * 
+ * this layout is used as the base structure for all pages. it includes a header 
+ * at the top, a footer at the bottom, and a slot for the main content in 
+ * between.
+ */
 import Footer from "../components/Footer.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -8,7 +15,7 @@ import Footer from "../components/Footer.astro";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Astro Site</title>
+    <title>My Astro Site</title>  <!-- todo: change this (is the tab title) -->
   </head>
   <body>
     <div class="flex flex-col w-full gap-4">
